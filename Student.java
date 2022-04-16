@@ -19,7 +19,7 @@ con=DriverManager.getConnection("jdbc:postgresql://localhost/postgres","postgres
 stmt=con.createStatement();
 
 //rs=stmt.executeQuery("select * from students");
-int ans=stmt.executeUpdate("insert into students values(13,'sakshi',98.25)");
+int ans=stmt.executeUpdate("insert into students values(1,'sanvi',95.25)");
 System.out.println(ans+"record inserted successfully");
 
 //int ans=stmt.executeUpdate("delete from students where rno=1");
@@ -28,10 +28,11 @@ System.out.println(ans+"record inserted successfully");
 //int ans=stmt.executeUpdate("update students set per= 85.32 where rno=11");
 //System.out.println(ans+"record updated successfully");
 
-//while(rs.next())
-//{
-//System.out.println(rs.getInt(1)+"\t"+rs.getString("sname") +"\t"+rs.getFloat("per"));
-//}
+rs=stmt.executeQuery("select * from students");
+while(rs.next())
+{
+System.out.println(rs.getInt(1)+"\t"+rs.getString("sname") +"\t"+rs.getFloat("per"));
+}
 
 //close resultset ,statement and connection object
 rs.close();
