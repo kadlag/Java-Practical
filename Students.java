@@ -68,7 +68,7 @@ String sname1=input.next();
 ps.setString(1,sname1);
 
 System.out.println("enter update percentage");
-Float per1=input.nextFloat();
+float per1=input.nextFloat();
 ps.setFloat(2,per1);
 
 //execute a sql query

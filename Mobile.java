@@ -29,6 +29,7 @@ System.out.println("1.Insert 2.Update 3.Delete 4.Display 5.Search 0.Exit");
 System.out.println("enter a menu");
  ch=input.nextInt();
 
+//ch=Integer.parseInt(args[0]);
 switch(ch)
 {
 case 1: 
