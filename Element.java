@@ -13,7 +13,6 @@ PreparedStatement ps=null;
 Statement stmt=null;
 ResultSet rs=null;
 
-int ch;
 
 try
 {
@@ -28,6 +27,8 @@ String mode=args[0];
 System.out.println("mode==>"+mode);
 
 
+if(args[0].equals("R"))
+{
 stmt=con.createStatement();
 
 rs=stmt.executeQuery("select * from element");
@@ -36,9 +37,15 @@ while(rs.next())
 System.out.println(rs.getInt(1)+"\t"+rs.getString("name") +"\t"+rs.getInt("chem_symbol"));
 }
 
+}
 
 
-ps=con.prepareStatement("update element set name=? and chem_symbol=? where atomic_weight=?");
+
+
+if(args[0].equals("U"))
+{
+
+ps=con.prepareStatement("update element set name=? , chem_symbol=? where atomic_weight=?");
 
 int weight=Integer.parseInt(args[1]);
 ps.setInt(3,weight);
@@ -53,8 +60,9 @@ ps.setInt(2,chem);
 
 int ans1=ps.executeUpdate();
 System.out.println(ans1 + "Record updated");
-
+}
 }//try
+
 
 
 catch (Exception e)
@@ -75,7 +83,9 @@ catch (Exception e)
 System.out.println(e);
 }//catch
 
+
 }//main
 }//class
+
 
 
